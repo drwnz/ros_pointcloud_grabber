@@ -32,7 +32,6 @@ topic_1 = []
 topic_2 = []
 topic_3 = []
 
-
 def callback_1(data):
     cloud_points = list(point_cloud2.read_points(data, skip_nans=True, field_names = ("x", "y", "z", "intensity")))
     topic_1.append(cloud_points)
@@ -49,8 +48,6 @@ def write_out():
     np.save(pointcloud_topics[0].replace("/", "_"), np.array(topic_1))
     np.save(pointcloud_topics[1].replace("/", "_"), np.array(topic_2))
     np.save(pointcloud_topics[2].replace("/", "_"), np.array(topic_3))
-
-    print topic_2
 
 def listener():
     rospy.init_node('pointcloud_grabber', anonymous=True)
